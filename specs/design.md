@@ -179,7 +179,8 @@ type LineResult = {
 };
 ```
 
-- The client is `new TypeSafeClient({ apiKey, model })`, with the key coming from §1.1. The SDK default retry policy handles 429/529 with backoff (DET-07).
+- The client is `new TypeSafeClient({ apiKey, model })`, with the key coming from §1.1. SDK logging is set to `off`, because request bodies contain the log lines (PII).
+- An authentication or permission error (401/403) is **fatal**: it aborts the run with exit code 1, instead of marking all 120 lines as errored. The SDK default retry policy handles 429/529 with backoff (DET-07).
 - Timing uses `performance.now()` around each call. The run timer starts after the input has loaded and stops after the last result, before rendering the report.
 - **Disagreement flag:** `isPii === false` while some category noul ≥ threshold, or `isPii === true` while no category noul ≥ threshold. These are listed in the report as "review" items, because they are useful for tuning prompts.
 
@@ -232,3 +233,4 @@ Concurrency (`src/pool.ts`): a worker pool of N async workers that pull from a s
 - 2026-09-26: review round 1. D1–D7 accepted as proposed. Added D8: `.env` / `.env.dist` secrets handling (§1.1, `env.ts`, `env.test.ts`), and raised the Node minimum to 20.12.
 - 2026-09-26: T2. Added the optional `hard_negative` label field and the fixture generator script (§5.1).
 - 2026-09-26: T6. Added `has_free_text_personal`, so that each of the 8 fixture categories has its own question (9 nouls in total). This makes per-category recall possible.
+- 2026-09-26: T7. 401/403 abort the run. SDK logging is turned off (§6).
