@@ -1,0 +1,54 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`console report (REQ-REP-01..04, REQ-REP-06) > matches the reviewed layout 1`] = `
+"
+══ Run ══
+  input        fixtures/web-logs.log
+  labels       fixtures/web-logs.labels.json
+  model        jev-latest → jev-1.13.0
+  threshold    0.50    concurrency 8
+  generated    2026-09-26T16:00:00.000Z
+
+══ Performance ══
+  total time   2.35s    throughput 2.6 lines/s
+  latency      min 380ms · p50 540ms · p95 700ms · max 700ms
+  tokens       2,100 input · 225 output · est. cost $0.00009
+
+══ Results ══
+  analyzed 5/6 · PII 3 · clean 2 · errors 1 · review 2
+  categories   person_name 1 · email 1 · postal_address 1
+
+══ Accuracy ══
+  evaluated 5 labelled lines at threshold 0.50
+  precision 0.67 · recall 0.67 · F1 0.67 · accuracy 0.60
+  confusion    TP 2 · FP 1 · TN 1 · FN 1
+
+  threshold  precision  recall   F1     FP  FN
+  0.30       0.75       1.00     0.86    1   0
+  0.50       0.67       0.67     0.67    1   1  ← run
+  0.70       1.00       0.67     0.80    0   1
+
+  category             labelled  detected  recall   (category noul ≥ threshold)
+  person_name                 2         2  1.00
+  email                       1         1  1.00
+  date_of_birth               1         0  0.00
+
+══ Lines with PII (3) ══
+  #001  0.99  person_name, email  GET /newsletter/confirm?email=anna.muster%40example.com&name=Anna+Muster HTTP/1.1" 3…
+  #003  0.62  postal_address  {"level":"INFO","svc":"stores","address":"Bahnhofplatz 1, 8001 Zürich"}
+  #005  0.88  -  {"level":"INFO","svc":"loyalty","dob":"30/04/1969"}
+
+══ False positives (1) ══
+  #003  0.62  public store address  {"level":"INFO","svc":"stores","address":"Bahnhofplatz 1, 8001 Zürich"}
+
+══ False negatives (1) ══
+  #004  0.41  expected person_name  {"level":"INFO","svc":"reviews","text":"Great service! - Fabio Conti, Lugano"}
+
+══ Review: primary and category answers disagree (2) ══
+  #004  0.41  clean, but person_name  {"level":"INFO","svc":"reviews","text":"Great service! - Fabio Conti, Lugano"}
+  #005  0.88  PII, no category  {"level":"INFO","svc":"loyalty","dob":"30/04/1969"}
+
+══ Errors (1) ══
+  #006  InternalServerError: 500 upstream failure
+"
+`;
