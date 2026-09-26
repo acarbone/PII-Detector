@@ -17,7 +17,7 @@ These tasks are ordered and small, and each one can be verified on its own. **No
 | T11 | **Console report** (`report/console.ts`): the sections in design §8, lines truncated to the terminal width, color that can be turned off | REP-01..04, REP-06 | Snapshot test passes |
 | T12 | **JSON and Markdown reports** | REP-05 | Files are written; the JSON is valid against the `LineResult` type |
 | T13 | **CLI wiring** (`cli.ts`): `parseArgs`, `--help`, orchestration, exit codes 0/1/2 | CLI-01..03, REP-07 | `npm run detect -- --help` works, and a missing key exits with 1 and the "copy .env.dist to .env" message |
-| T14 | **Live smoke test** (3 lines, skipped when there is no key) | NFR-03 | The test passes with a key and is skipped without one |
+| T14 | **Live smoke test** (`test/smoke.live.test.ts`, 3 lines, run with `npm run test:live`, skipped when there is no key) | NFR-03 | The test passes with a key and is skipped without one |
 | T15 | **First real run and evaluation**: run on all 120 lines, record the metrics in the README "Results" section, and compare against NFR-05. If a target is missed, apply the prompt-iteration protocol (design §3) and log the result in the design changelog | NFR-05 | The README has the measured numbers and the model version |
 | T16 | **README update**: move from "planned usage" to real usage, add a results table and next steps (batch-mode experiment D7, non-English logs) | — | The README matches the behavior |
 

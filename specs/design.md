@@ -22,7 +22,7 @@ src/
   types.ts
 test/
   fixtures.test.ts  metrics.test.ts  detector.test.ts  progress.test.ts  report.test.ts
-  live.smoke.test.ts   # skipped unless TYPESAFE_API_KEY               (NFR-03)
+  smoke.live.test.ts   # opt-in: npm run test:live; skips w/o key     (NFR-03)
 .env.dist             # versioned template                             (NFR-06)
 .env                  # local secrets, git-ignored                     (NFR-06)
 .gitignore            # node_modules/, reports/, .env                  (NFR-04, NFR-06)
@@ -212,7 +212,7 @@ Concurrency (`src/pool.ts`): a worker pool of N async workers that pull from a s
 | `progress.test.ts`: TTY vs non-TTY output, milestones | PRG-* |
 | `report.test.ts`: snapshot of the console/Markdown output on a synthetic result set, and exit codes | REP-*, CLI-* |
 | `env.test.ts`: `.env` is loaded when present; a missing `.env` is not an error; a shell variable takes precedence; a missing key gives exit 1 with the `.env.dist` hint | NFR-06, NFR-07 |
-| `live.smoke.test.ts`: 3 lines against the real API, reading the key from `.env` or the shell (skipped when there is no key) | NFR-03 |
+| `smoke.live.test.ts`: 3 lines against the real API, reading the key from `.env` or the shell. It runs only with `npm run test:live`, so that `npm test` stays offline even when `.env` exists, and it skips itself when there is no key. | NFR-03 |
 
 ## 10. Decisions (resolved at review, 2026-09-26)
 
@@ -234,3 +234,4 @@ Concurrency (`src/pool.ts`): a worker pool of N async workers that pull from a s
 - 2026-09-26: T2. Added the optional `hard_negative` label field and the fixture generator script (§5.1).
 - 2026-09-26: T6. Added `has_free_text_personal`, so that each of the 8 fixture categories has its own question (9 nouls in total). This makes per-category recall possible.
 - 2026-09-26: T7. 401/403 abort the run. SDK logging is turned off (§6).
+- 2026-09-26: T14. The live smoke test is opt-in (`npm run test:live`, `*.live.test.ts`), so the default `npm test` never calls the API (§9).
