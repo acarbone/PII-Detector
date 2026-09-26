@@ -1,0 +1,96 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Markdown report (REQ-REP-05) > matches the reviewed layout 1`] = `
+"# PII detection report
+
+## Run
+
+| | |
+|---|---|
+| Input | \`fixtures/web-logs.log\` |
+| Labels | \`fixtures/web-logs.labels.json\` |
+| Model | \`jev-latest\` → \`jev-1.13.0\` |
+| Threshold | 0.50 |
+| Concurrency | 8 |
+| Generated | 2026-09-26T16:00:00.000Z |
+
+## Performance
+
+| Metric | Value |
+|---|---|
+| Total execution time | 2.35s |
+| Throughput | 2.6 lines/s |
+| Latency min / p50 / p95 / max | 380ms / 540ms / 700ms / 700ms |
+| Tokens (input / output) | 2,100 / 225 |
+| Estimated cost | $0.00009 |
+
+## Results
+
+| Analyzed | PII | Clean | Errors | Review |
+|---:|---:|---:|---:|---:|
+| 5/6 | 3 | 2 | 1 | 2 |
+
+| Category (flagged lines) | Lines |
+|---|---:|
+| person_name | 1 |
+| email | 1 |
+| postal_address | 1 |
+
+## Accuracy
+
+Evaluated 5 labelled lines at threshold 0.50.
+
+| Precision | Recall | F1 | Accuracy | TP | FP | TN | FN |
+|---:|---:|---:|---:|---:|---:|---:|---:|
+| 0.67 | 0.67 | 0.67 | 0.60 | 2 | 1 | 1 | 1 |
+
+### Threshold sweep
+
+| Threshold | Precision | Recall | F1 | FP | FN |
+|---:|---:|---:|---:|---:|---:|
+| 0.30 | 0.75 | 1.00 | 0.86 | 1 | 0 |
+| 0.50 (run) | 0.67 | 0.67 | 0.67 | 1 | 1 |
+| 0.70 | 1.00 | 0.67 | 0.80 | 0 | 1 |
+
+### Per-category recall
+
+| Category | Labelled | Detected | Recall |
+|---|---:|---:|---:|
+| person_name | 2 | 2 | 1.00 |
+| email | 1 | 1 | 1.00 |
+| date_of_birth | 1 | 0 | 0.00 |
+
+## Lines with PII (3)
+
+| Line | P(PII) | Categories | Log line |
+|---:|---:|---|---|
+| 1 | 0.99 | person_name, email | \`GET /newsletter/confirm?email=anna.muster%40example.com&name=Anna+Muster HTTP/1.1" 302 0 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6)"\` |
+| 3 | 0.62 | postal_address | \`{"level":"INFO","svc":"stores","address":"Bahnhofplatz 1, 8001 Zürich"}\` |
+| 5 | 0.88 | - | \`{"level":"INFO","svc":"loyalty","dob":"30/04/1969"}\` |
+
+## False positives (1)
+
+| Line | P(PII) | Label note | Log line |
+|---:|---:|---|---|
+| 3 | 0.62 | public store address | \`{"level":"INFO","svc":"stores","address":"Bahnhofplatz 1, 8001 Zürich"}\` |
+
+## False negatives (1)
+
+| Line | P(PII) | Expected categories | Log line |
+|---:|---:|---|---|
+| 4 | 0.41 | person_name | \`{"level":"INFO","svc":"reviews","text":"Great service! - Fabio Conti, Lugano"}\` |
+
+## Review: primary and category answers disagree (2)
+
+| Line | P(PII) | Disagreement | Log line |
+|---:|---:|---|---|
+| 4 | 0.41 | clean, but person_name | \`{"level":"INFO","svc":"reviews","text":"Great service! - Fabio Conti, Lugano"}\` |
+| 5 | 0.88 | PII, no category | \`{"level":"INFO","svc":"loyalty","dob":"30/04/1969"}\` |
+
+## Errors (1)
+
+| Line | Error |
+|---:|---|
+| 6 | InternalServerError: 500 upstream failure |
+"
+`;
