@@ -1,0 +1,120 @@
+{"ts":"2026-09-12T08:00:54Z","level":"ERROR","svc":"payments","msg":"gateway rejected card 4111111111111111 exp 09/28","order_id":"ORD-2026-000931"}
+{"ts":"2026-09-12T08:01:40Z","level":"INFO","svc":"auth","event":"login_success","user_id":"u_48213","mfa":true}
+{"ts":"2026-09-12T08:01:49Z","level":"INFO","svc":"chatbot","event":"transcript","session":"cb_5512","user_said":"hi it's Ursula Brandt, my order didn't arrive"}
+{"ts":"2026-09-12T08:02:07Z","level":"INFO","svc":"checkout","event":"guest_checkout","guest_email":"emma.fischer@example.com","guest_phone":"+44 7700 900321"}
+192.0.2.0 - - [12/Sep/2026:10:02:14 +0200] "GET /sitemap.xml HTTP/1.1" 200 20455 "-" "Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)"
+{"ts":"2026-09-12T08:02:59Z","level":"INFO","svc":"delivery","event":"courier_note","shipment_id":"SHP-88213","note":"Leave parcel with neighbour Mrs. Andrea Frei, 2nd floor"}
+203.0.113.0 - - [12/Sep/2026:10:03:08 +0200] "GET /cart HTTP/1.1" 200 7342 "https://shop.example/products/sku-44821" "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15"
+198.51.100.0 - - [12/Sep/2026:10:03:51 +0200] "GET /products/sku-99999 HTTP/1.1" 404 812 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+192.0.2.0 - - [12/Sep/2026:10:04:44 +0200] "POST /api/cart/items HTTP/1.1" 201 96 "https://shop.example/products/sku-44821" "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15"
+192.0.2.0 - - [12/Sep/2026:10:05:28 +0200] "GET /unsubscribe?u=julia.roth%40example.com HTTP/1.1" 200 1840 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15"
+{"ts":"2026-09-12T08:05:55Z","level":"INFO","svc":"payments","event":"payout_scheduled","seller_id":"S-771","iban":"GB29 NWBK 6016 1331 9268 19"}
+{"ts":"2026-09-12T08:06:39Z","level":"DEBUG","svc":"kyc","event":"mrz_parsed","mrz":"P<CHEMUSTER<<HANS<PETER<<<<<<<<<<<<<<<<<<<<<","document_number":"S0019283"}
+198.51.100.0 - - [12/Sep/2026:10:07:09 +0200] "POST /checkout/pay HTTP/1.1" 402 128 "https://shop.example/checkout?cc=5555555555554444" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+192.0.2.0 - - [12/Sep/2026:10:07:18 +0200] "GET / HTTP/1.1" 200 32110 "-" "UptimeRobot/2.0"
+{"ts":"2026-09-12T08:08:14Z","level":"INFO","svc":"geo","event":"locale_resolved","geo":"Zurich,CH","lang":"de","currency":"CHF"}
+{"ts":"2026-09-12T08:08:27Z","level":"INFO","svc":"mailer","event":"sent","to":"claudia.zimmermann@example.com","template":"order_confirmation","order_id":"ORD-2026-000944"}
+2026-09-12 10:08:43,321 ERROR [checkout] at CheckoutService.validate (checkout.ts:212) customer={name:'Laura Gerber', phone:'+1 202-555-0164'}
+{"ts":"2026-09-12T08:09:27Z","level":"INFO","svc":"stores","event":"store_viewed","store":"Shop Example Zürich HB","address":"Bahnhofplatz 1, 8001 Zürich","opening":"08:00-21:00"}
+{"ts":"2026-09-12T08:09:52Z","level":"INFO","svc":"delivery","event":"address_validated","shipment_id":"SHP-88240","address":"Avenue de la Gare 21, 1003 Lausanne","valid":true}
+{"ts":"2026-09-12T08:10:15Z","level":"INFO","svc":"reviews","event":"review_posted","product":"SKU-20417","rating":5,"text":"Great service, fast delivery! - Fabio Conti, Lugano"}
+{"ts":"2026-09-12T08:10:24Z","level":"INFO","svc":"inventory","event":"stock_updated","sku":"SKU-10023","warehouse":"WH-ZH-02","qty":118}
+192.0.2.0 - - [12/Sep/2026:10:10:59 +0200] "GET /account/orders HTTP/1.1" 302 0 "https://shop.example/" "Mozilla/5.0 (iPhone; CPU iPhone OS 17_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148"
+203.0.113.0 - - [12/Sep/2026:10:11:50 +0200] "GET /img/products/sku-10023-800w.webp HTTP/1.1" 200 58211 "https://shop.example/products/sku-10023" "Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36"
+203.0.113.0 - - [12/Sep/2026:10:12:10 +0200] "GET /api/users/lookup?tel=%2B447700900456 HTTP/1.1" 200 412 "-" "Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36"
+203.0.113.0 - - [12/Sep/2026:10:12:52 +0200] "GET /category/chocolate?sort=price_asc&page=2 HTTP/1.1" 200 18321 "https://shop.example/category/chocolate" "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15"
+{"ts":"2026-09-12T08:13:08Z","level":"INFO","svc":"analytics","event":"click","element":"add_to_cart","path":"/products/sku-44821","anonymous_id":"anon_77ab01"}
+2026-09-12 10:13:33,212 INFO  [http] server listening on :8080 (workers=4, keepalive=65s)
+2026-09-12 10:13:59,688 WARN  [db] slow query 1840ms: SELECT * FROM orders WHERE status = $1 AND created_at > $2
+{"ts":"2026-09-12T08:14:08Z","level":"INFO","svc":"reviews","event":"review_posted","product":"SKU-44821","rating":4,"text":"Rich flavour, a bit too sweet for my taste."}
+{"ts":"2026-09-12T08:15:07Z","level":"INFO","svc":"cart","event":"item_removed","cart_id":"cart_8812","sku":"SKU-20417","qty":1}
+{"ts":"2026-09-12T08:15:21Z","level":"INFO","svc":"kyc","event":"id_upload","document":"identity_card","document_number":"C0482913","dob":"1978-12-02"}
+198.51.100.0 - - [12/Sep/2026:10:16:13 +0200] "GET /api/v1/products?ids=SKU-10023,SKU-44821,SKU-20417 HTTP/1.1" 200 3380 "https://shop.example/cart" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+198.51.100.0 - - [12/Sep/2026:10:17:10 +0200] "POST /api/account/update HTTP/1.1" 204 0 "https://shop.example/profile?phone=%2B12025550143" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+{"ts":"2026-09-12T08:17:49Z","level":"DEBUG","svc":"auth","event":"token_issued","session_id":"sess_7Hq2kLx9Pz","jwt":"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1XzQ4MjEzIn0.c2lnbmF0dXJl","expires_in":3600}
+{"ts":"2026-09-12T08:18:09Z","level":"INFO","svc":"support","event":"ticket_opened","ticket_id":"T-58213","message":"Hi, I'm pregnant and need the delivery before the 20th, call me on +44 7700 900123"}
+10.0.4.0 - - [12/Sep/2026:10:18:16 +0200] "GET /healthz HTTP/1.1" 200 2 "-" "kube-probe/1.30"
+2026-09-12 10:18:23,595 WARN  [fraud] High-risk order ORD-2026-000988 flagged: billing name 'Reto Ammann' does not match card holder
+{"ts":"2026-09-12T08:18:50Z","level":"INFO","svc":"checkout","event":"payment_method_selected","order_id":"ORD-2026-000913","method":"twint"}
+{"ts":"2026-09-12T08:18:58Z","level":"INFO","svc":"payments","event":"iban_checked","iban_country":"CH","iban_valid":true,"user_id":"u_61302"}
+2026-09-12 10:19:16,244 ERROR [db] duplicate key value violates unique constraint "users_email_key" DETAIL: Key (email)=(peter.keller@example.net) already exists.
+198.51.100.0 - - [12/Sep/2026:10:20:14 +0200] "GET /blog/fondue-recipes HTTP/1.1" 200 22190 "https://www.google.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+{"ts":"2026-09-12T08:21:09Z","level":"INFO","svc":"payments","event":"sepa_mandate_created","holder":"Jonas Weber","iban":"DE89 3704 0044 0532 0130 00"}
+{"ts":"2026-09-12T08:21:26Z","level":"INFO","svc":"checkout","event":"order_created","order_id":"ORD-2026-000913","items":3,"total_chf":129.9}
+198.51.100.0 - - [12/Sep/2026:10:22:11 +0200] "GET /appointments/book?name=Yasmin+Arnold&phone=%2B12025550199 HTTP/1.1" 200 5120 "-" "Mozilla/5.0 (iPhone; CPU iPhone OS 17_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148"
+192.0.2.0 - - [12/Sep/2026:10:22:18 +0200] "GET /products/sku-10023 HTTP/1.1" 200 6120 "https://shop.example/category/cheese" "Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36"
+{"ts":"2026-09-12T08:22:27Z","level":"ERROR","svc":"account","msg":"ValidationError: dob '1987-03-14' invalid for user lukas.meier@example.com"}
+{"ts":"2026-09-12T08:23:20Z","level":"INFO","svc":"payments","event":"authorized","order_id":"ORD-2026-000913","amount_chf":129.9,"psp_ref":"psp_71cQ9s"}
+{"ts":"2026-09-12T08:23:53Z","level":"WARN","svc":"auth","event":"login_failed","username":"sophie.dubois@example.org","reason":"bad_password","attempt":3}
+{"ts":"2026-09-12T08:24:00Z","level":"INFO","svc":"fulfilment","event":"picked","order_id":"ORD-2026-000913","warehouse":"WH-ZH-02","items":3}
+{"ts":"2026-09-12T08:24:08Z","level":"INFO","svc":"cart","event":"item_added","cart_id":"cart_8812","sku":"SKU-44821","qty":2,"price_chf":24.9}
+{"ts":"2026-09-12T08:24:39Z","level":"INFO","svc":"checkout","event":"coupon_applied","code":"WELCOME-2026","discount_pct":10,"cart_id":"cart_8812"}
+{"ts":"2026-09-12T08:25:26Z","level":"INFO","svc":"loyalty","event":"profile_completed","member_id":"M-120044","dob":"30/04/1969"}
+{"ts":"2026-09-12T08:25:49Z","level":"INFO","svc":"checkout","event":"receipt_sent","customer_email":"j***@e***.com","order_id":"ORD-2026-000921"}
+{"ts":"2026-09-12T08:26:35Z","level":"INFO","svc":"support","event":"ticket_opened","ticket_id":"T-58240","message":"I'm moving out because of my divorce, please send my order to Hauptgasse 3, 4500 Solothurn instead"}
+{"ts":"2026-09-12T08:26:55Z","level":"INFO","svc":"support","event":"ticket_opened","ticket_id":"T-58277","message":"My son Luca is 8 and has a severe nut allergy, is this product safe for him?"}
+{"ts":"2026-09-12T08:27:18Z","level":"INFO","svc":"auth","event":"logout","user_id":"u_77120","session_id":"sess_Qm81xT0aLr"}
+{"ts":"2026-09-12T08:28:00Z","level":"INFO","svc":"invoicing","event":"invoice_rendered","seller_vat":"CHE-123.456.789 MWST","invoice_id":"INV-2026-04410"}
+{"ts":"2026-09-12T08:28:25Z","level":"INFO","svc":"cms","event":"banner_rendered","banner":"help","text":"Questions? Call our hotline 0800 123 456 (Mon-Fri 8-18)"}
+{"ts":"2026-09-12T08:28:31Z","level":"INFO","svc":"mailer","event":"sent","from":"noreply@shop.example","to":"orders@shop.example","template":"ops_summary"}
+{"ts":"2026-09-12T08:29:31Z","level":"INFO","svc":"returns","event":"label_created","rma":"RMA-4410","return_label_for":"Martin Bühler, Dorfstrasse 7, 3073 Gümligen"}
+{"ts":"2026-09-12T08:30:24Z","level":"WARN","svc":"api","event":"rate_limited","route":"/api/v1/products","client":"anon_ff0192","limit":"100/min"}
+10.0.4.0 - - [12/Sep/2026:10:31:24 +0200] "GET /readyz HTTP/1.1" 200 2 "-" "kube-probe/1.30"
+{"ts":"2026-09-12T08:31:39Z","level":"INFO","svc":"fulfilment","event":"shipped","order_id":"ORD-2026-000913","carrier":"post","tracking":"99.60.123456.78901234"}
+{"ts":"2026-09-12T08:32:02Z","level":"INFO","svc":"api","event":"request","request_id":"3f1c9a7e-2b4d-4e8f-9a61-0c5d7b2e8f14","route":"/api/cart","status":200,"duration_ms":42}
+203.0.113.0 - - [12/Sep/2026:10:32:43 +0200] "GET /search?q=swiss+chocolate+gift+box HTTP/1.1" 200 14002 "https://shop.example/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15"
+198.51.100.0 - - [12/Sep/2026:10:33:03 +0200] "GET /checkout HTTP/1.1" 200 9120 "https://shop.example/cart" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+{"ts":"2026-09-12T08:33:54Z","level":"INFO","svc":"search","event":"query","query":"dark chocolate 70%","results":38,"latency_ms":21}
+{"ts":"2026-09-12T08:34:20Z","level":"ERROR","svc":"payments","msg":"PSP timeout after 10000ms","order_id":"ORD-2026-000935","retry":1}
+{"ts":"2026-09-12T08:34:40Z","level":"INFO","svc":"search","event":"query","query":"gruyère aop 1kg","results":4,"latency_ms":17}
+{"ts":"2026-09-12T08:34:57Z","level":"INFO","svc":"search","event":"query","query":"Elena Moretti Bahnhofstrasse 45 Zürich","results":0}
+2026-09-12 10:35:07,403 INFO  [queue] consumer email-dispatch processed 250 messages in 3.2s (lag=0)
+{"ts":"2026-09-12T08:35:42Z","level":"INFO","svc":"account","event":"profile_updated","user_id":"u_77120","changes":{"birthdate":"02.11.1990"}}
+198.51.100.0 - - [12/Sep/2026:10:36:18 +0200] "GET /robots.txt HTTP/1.1" 200 312 "-" "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
+203.0.113.0 - - [12/Sep/2026:10:36:39 +0200] "GET /newsletter/confirm?email=anna.muster%40example.com&name=Anna+Muster HTTP/1.1" 302 0 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15"
+{"ts":"2026-09-12T08:37:20Z","level":"INFO","svc":"deploy","event":"release","version":"2026.09.12-1","commit":"a41c9e2","env":"production"}
+203.0.113.0 - - [12/Sep/2026:10:38:02 +0200] "GET /api/v1/customers/stefan.wyss@example.org/orders HTTP/1.1" 200 3921 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+{"ts":"2026-09-12T08:38:43Z","level":"INFO","svc":"support","event":"ticket_status_changed","ticket_id":"T-58213","from":"open","to":"pending","agent_id":"agent_17"}
+192.0.2.0 - - [12/Sep/2026:10:39:02 +0200] "GET /api/shipping/options?country=CH HTTP/1.1" 200 640 "https://shop.example/checkout" "Mozilla/5.0 (iPhone; CPU iPhone OS 17_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148"
+{"ts":"2026-09-12T08:39:48Z","level":"INFO","svc":"privacy","event":"gdpr_export_requested","request_id":"DSR-0192","requester":"Oliver Huber"}
+{"ts":"2026-09-12T08:40:12Z","level":"INFO","svc":"sms","event":"sent","to":"+44 7700 900789","template":"otp_login"}
+203.0.113.0 - - [12/Sep/2026:10:40:45 +0200] "GET /products/sku-44821 HTTP/1.1" 200 5312 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15"
+{"ts":"2026-09-12T08:41:10Z","level":"INFO","svc":"auth","event":"mfa_challenge_sent","user_id":"u_40022","channel":"totp"}
+{"ts":"2026-09-12T08:41:45Z","level":"INFO","svc":"support","event":"ticket_opened","ticket_id":"T-58290","message":"The checkout button stays greyed out on Safari 17 after applying a coupon"}
+{"ts":"2026-09-12T08:42:25Z","level":"INFO","svc":"account","event":"address_changed","user_id":"u_40022","new_address":"Kirchweg 5, 8810 Horgen"}
+{"ts":"2026-09-12T08:42:37Z","level":"INFO","svc":"kyc","event":"document_checked","full_name":"Thomas Brunner","passport_number":"X4821957","nationality":"CH"}
+{"ts":"2026-09-12T08:43:29Z","level":"INFO","svc":"analytics","event":"page_view","path":"/category/chocolate","anonymous_id":"anon_77ab01","duration_ms":5400}
+{"ts":"2026-09-12T08:44:22Z","level":"INFO","svc":"auth","event":"account_created","username":"sara.lehmann@example.net","display_name":"Sara Lehmann"}
+192.0.2.0 - - [12/Sep/2026:10:45:17 +0200] "GET /wp-login.php HTTP/1.1" 404 812 "-" "python-requests/2.32.3"
+192.0.2.0 - - [12/Sep/2026:10:46:08 +0200] "GET /orders/track?zip=8001&street=Seefeldstrasse+118&lastname=Huber HTTP/1.1" 200 2210 "-" "Mozilla/5.0 (iPhone; CPU iPhone OS 17_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148"
+{"ts":"2026-09-12T08:46:18Z","level":"WARN","svc":"inventory","event":"low_stock","sku":"SKU-20417","qty":3,"threshold":5}
+{"ts":"2026-09-12T08:46:43Z","level":"INFO","svc":"cache","event":"purge","keys":412,"reason":"price_update"}
+{"ts":"2026-09-12T08:47:16Z","level":"INFO","svc":"forms","event":"form_submitted","form":"contact","fields":{"name":"Chloé Favre","message":"Please call me back at +1 202-555-0187"}}
+{"ts":"2026-09-12T08:47:50Z","level":"INFO","svc":"scheduler","event":"job_finished","job":"sitemap_rebuild","duration_ms":8120,"status":"ok"}
+{"ts":"2026-09-12T08:48:29Z","level":"INFO","svc":"experiments","event":"assigned","experiment":"checkout_v2","variant":"B","anonymous_id":"anon_a1b2c3d4e5"}
+{"ts":"2026-09-12T08:48:52Z","level":"INFO","svc":"auth","event":"password_reset_requested","email":"m.bianchi@example.org"}
+{"ts":"2026-09-12T08:49:03Z","level":"WARN","svc":"payments","msg":"card declined","card_last4":"4242","order_id":"ORD-2026-000914"}
+2026-09-12 10:49:51,707 ERROR [cdn] origin fetch failed for /img/products/sku-30112-800w.webp: 503 Service Unavailable
+{"ts":"2026-09-12T08:50:51Z","level":"INFO","svc":"analytics","event":"identify","user_hash":"sha256:9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08"}
+{"ts":"2026-09-12T08:51:39Z","level":"INFO","svc":"kyc","event":"id_verification_submitted","user_id":"u_50117","ahv":"756.1234.5678.97"}
+{"ts":"2026-09-12T08:52:34Z","level":"INFO","svc":"crm","event":"lead_created","lead_id":"L-3301","source":"callback_widget","phone":"+1 202-555-0110"}
+198.51.100.0 - - [12/Sep/2026:10:52:56 +0200] "GET /category/cheese HTTP/1.1" 200 21007 "https://www.google.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+203.0.113.0 - - [12/Sep/2026:10:53:06 +0200] "POST /api/v1/events HTTP/1.1" 202 0 "https://shop.example/" "Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36"
+{"ts":"2026-09-12T08:53:19Z","level":"INFO","svc":"chat","event":"message_received","conversation_id":"c_9921","text":"My name is Daniel Schmid and I was just diagnosed with diabetes, can I return the chocolate?"}
+{"ts":"2026-09-12T08:53:36Z","level":"INFO","svc":"checkout","event":"billing_set","order_id":"ORD-2026-000950","billing_address":"Rue du Rhône 8, 1204 Genève"}
+203.0.113.0 - - [12/Sep/2026:10:54:10 +0200] "GET /favicon.ico HTTP/1.1" 200 1150 "-" "Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36"
+{"ts":"2026-09-12T08:54:23Z","level":"INFO","svc":"recommendations","event":"served","model":"als-v3","sku":"SKU-44821","slots":6}
+{"ts":"2026-09-12T08:54:50Z","level":"INFO","svc":"account","event":"phone_verified","phone":"+41 ** *** ** 12","user_id":"u_50117"}
+{"ts":"2026-09-12T08:55:50Z","level":"INFO","svc":"forms","event":"form_submitted","form":"birthday_club","fields":{"first_name":"Noah","last_name":"Keller","birthday":"1995-07-21"}}
+192.0.2.0 - - [12/Sep/2026:10:56:01 +0200] "GET /static/css/main.b71e2.css HTTP/1.1" 200 40211 "https://shop.example/" "Mozilla/5.0 (iPhone; CPU iPhone OS 17_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148"
+{"ts":"2026-09-12T08:56:40Z","level":"INFO","svc":"checkout","event":"shipping_set","order_id":"ORD-2026-000917","recipient":"Marco Bernasconi","address":"Via Nassa 12, 6900 Lugano"}
+{"ts":"2026-09-12T08:56:45Z","level":"INFO","svc":"account","event":"age_verified","dob_verified":true,"age_bracket":"25-34"}
+{"ts":"2026-09-12T08:56:53Z","level":"INFO","svc":"search","event":"no_results","query":"lactose free fondue","suggestions":2}
+{"ts":"2026-09-12T08:57:22Z","level":"INFO","svc":"shipping","event":"rate_quoted","destination_postcode":"8001","country":"CH","carrier":"post","price_chf":8.5}
+{"ts":"2026-09-12T08:58:06Z","level":"INFO","svc":"payments","event":"refund_issued","msg":"refund of CHF 49.90 issued to IBAN CH93 0076 2011 6238 5295 7 for customer Giulia Rossi"}
+{"ts":"2026-09-12T08:58:38Z","level":"INFO","svc":"support","event":"ticket_opened","ticket_id":"T-58262","email":"r.meyer@example.com","message":"I'm hard of hearing so please only contact me by email, never by phone"}
+{"ts":"2026-09-12T08:59:02Z","level":"INFO","svc":"mailer","event":"sent","to":"support@shop.example","template":"daily_digest"}
+{"ts":"2026-09-12T08:59:34Z","level":"ERROR","svc":"pricing","msg":"NullPointerException in PriceService.compute at line 88 for sku=SKU-10023"}
+{"ts":"2026-09-12T08:59:47Z","level":"INFO","svc":"kyc","event":"tax_residency_declared","user_id":"u_61302","social_security":"756.3047.5009.62"}
+198.51.100.0 - - [12/Sep/2026:11:00:34 +0200] "GET /static/js/app.3f9c1.js HTTP/1.1" 200 184233 "https://shop.example/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+{"ts":"2026-09-12T09:00:40Z","level":"WARN","svc":"payments","event":"chargeback_opened","msg":"chargeback opened for card 4000 0566 5566 5556 holder Nina Steiner"}

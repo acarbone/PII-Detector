@@ -121,6 +121,8 @@ Prompt iteration protocol: if the fixture accuracy misses NFR-05, compare the va
   [{ "line": 7, "contains_pii": true, "categories": ["email", "person_name"], "note": "newsletter signup, name in query" }]
   ```
   `categories` ⊆ `person_name | email | phone | postal_address | date_of_birth | government_id | payment_data | free_text_personal`.
+  Hard negatives (REQ-FIX-05) also carry `"hard_negative": true`, so that the validation test can count them.
+- `scripts/generate-fixtures.ts` (`npm run fixtures:generate`) builds both files deterministically: a seeded shuffle and monotonic timestamps. The generated files are committed; the script exists so the fixture can be reproduced or extended.
 
 ### 5.2 Distribution (target)
 
@@ -225,4 +227,5 @@ Concurrency (`src/pool.ts`): a worker pool of N async workers that pull from a s
 ## 11. Changelog
 
 - 2026-09-26: initial design for review.
+- 2026-09-26: T2. Added the optional `hard_negative` label field and the fixture generator script (§5.1).
 - 2026-09-26: review round 1. D1–D7 accepted as proposed. Added D8: `.env` / `.env.dist` secrets handling (§1.1, `env.ts`, `env.test.ts`), and raised the Node minimum to 20.12.

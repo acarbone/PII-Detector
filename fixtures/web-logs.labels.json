@@ -1,0 +1,859 @@
+[
+  {
+    "line": 1,
+    "contains_pii": true,
+    "categories": [
+      "payment_data"
+    ],
+    "note": "full card number in error"
+  },
+  {
+    "line": 2,
+    "contains_pii": false,
+    "categories": [],
+    "note": "internal user id",
+    "hard_negative": true
+  },
+  {
+    "line": 3,
+    "contains_pii": true,
+    "categories": [
+      "person_name"
+    ],
+    "note": "name in chatbot transcript"
+  },
+  {
+    "line": 4,
+    "contains_pii": true,
+    "categories": [
+      "email",
+      "phone"
+    ],
+    "note": "guest email and phone"
+  },
+  {
+    "line": 5,
+    "contains_pii": false,
+    "categories": [],
+    "note": "bot"
+  },
+  {
+    "line": 6,
+    "contains_pii": true,
+    "categories": [
+      "person_name"
+    ],
+    "note": "third-party name in courier note"
+  },
+  {
+    "line": 7,
+    "contains_pii": false,
+    "categories": [],
+    "note": "cart page"
+  },
+  {
+    "line": 8,
+    "contains_pii": false,
+    "categories": [],
+    "note": "404"
+  },
+  {
+    "line": 9,
+    "contains_pii": false,
+    "categories": [],
+    "note": "add to cart"
+  },
+  {
+    "line": 10,
+    "contains_pii": true,
+    "categories": [
+      "email"
+    ],
+    "note": "URL-encoded email in unsubscribe link"
+  },
+  {
+    "line": 11,
+    "contains_pii": true,
+    "categories": [
+      "payment_data"
+    ],
+    "note": "payout IBAN"
+  },
+  {
+    "line": 12,
+    "contains_pii": true,
+    "categories": [
+      "government_id",
+      "person_name"
+    ],
+    "note": "passport MRZ with name"
+  },
+  {
+    "line": 13,
+    "contains_pii": true,
+    "categories": [
+      "payment_data"
+    ],
+    "note": "card number in referrer"
+  },
+  {
+    "line": 14,
+    "contains_pii": false,
+    "categories": [],
+    "note": "uptime monitor"
+  },
+  {
+    "line": 15,
+    "contains_pii": false,
+    "categories": [],
+    "note": "city and country only",
+    "hard_negative": true
+  },
+  {
+    "line": 16,
+    "contains_pii": true,
+    "categories": [
+      "email"
+    ],
+    "note": "personal recipient email"
+  },
+  {
+    "line": 17,
+    "contains_pii": true,
+    "categories": [
+      "person_name",
+      "phone"
+    ],
+    "note": "customer object in stack trace"
+  },
+  {
+    "line": 18,
+    "contains_pii": false,
+    "categories": [],
+    "note": "public store address",
+    "hard_negative": true
+  },
+  {
+    "line": 19,
+    "contains_pii": true,
+    "categories": [
+      "postal_address"
+    ],
+    "note": "delivery address"
+  },
+  {
+    "line": 20,
+    "contains_pii": true,
+    "categories": [
+      "person_name"
+    ],
+    "note": "signed review"
+  },
+  {
+    "line": 21,
+    "contains_pii": false,
+    "categories": [],
+    "note": "inventory"
+  },
+  {
+    "line": 22,
+    "contains_pii": false,
+    "categories": [],
+    "note": "redirect to login"
+  },
+  {
+    "line": 23,
+    "contains_pii": false,
+    "categories": [],
+    "note": "image"
+  },
+  {
+    "line": 24,
+    "contains_pii": true,
+    "categories": [
+      "phone"
+    ],
+    "note": "URL-encoded phone in query"
+  },
+  {
+    "line": 25,
+    "contains_pii": false,
+    "categories": [],
+    "note": "category listing"
+  },
+  {
+    "line": 26,
+    "contains_pii": false,
+    "categories": [],
+    "note": "click event"
+  },
+  {
+    "line": 27,
+    "contains_pii": false,
+    "categories": [],
+    "note": "service start"
+  },
+  {
+    "line": 28,
+    "contains_pii": false,
+    "categories": [],
+    "note": "slow query"
+  },
+  {
+    "line": 29,
+    "contains_pii": false,
+    "categories": [],
+    "note": "anonymous review"
+  },
+  {
+    "line": 30,
+    "contains_pii": false,
+    "categories": [],
+    "note": "cart event"
+  },
+  {
+    "line": 31,
+    "contains_pii": true,
+    "categories": [
+      "government_id",
+      "date_of_birth"
+    ],
+    "note": "ID card number and DOB"
+  },
+  {
+    "line": 32,
+    "contains_pii": false,
+    "categories": [],
+    "note": "product batch api"
+  },
+  {
+    "line": 33,
+    "contains_pii": true,
+    "categories": [
+      "phone"
+    ],
+    "note": "URL-encoded phone in referrer"
+  },
+  {
+    "line": 34,
+    "contains_pii": false,
+    "categories": [],
+    "note": "session token / JWT",
+    "hard_negative": true
+  },
+  {
+    "line": 35,
+    "contains_pii": true,
+    "categories": [
+      "free_text_personal",
+      "phone"
+    ],
+    "note": "health detail and phone in free text"
+  },
+  {
+    "line": 36,
+    "contains_pii": false,
+    "categories": [],
+    "note": "health check"
+  },
+  {
+    "line": 37,
+    "contains_pii": true,
+    "categories": [
+      "person_name"
+    ],
+    "note": "name in fraud warning"
+  },
+  {
+    "line": 38,
+    "contains_pii": false,
+    "categories": [],
+    "note": "payment method"
+  },
+  {
+    "line": 39,
+    "contains_pii": false,
+    "categories": [],
+    "note": "IBAN metadata without number",
+    "hard_negative": true
+  },
+  {
+    "line": 40,
+    "contains_pii": true,
+    "categories": [
+      "email"
+    ],
+    "note": "email in database error"
+  },
+  {
+    "line": 41,
+    "contains_pii": false,
+    "categories": [],
+    "note": "blog page"
+  },
+  {
+    "line": 42,
+    "contains_pii": true,
+    "categories": [
+      "payment_data",
+      "person_name"
+    ],
+    "note": "SEPA mandate holder and IBAN"
+  },
+  {
+    "line": 43,
+    "contains_pii": false,
+    "categories": [],
+    "note": "order created"
+  },
+  {
+    "line": 44,
+    "contains_pii": true,
+    "categories": [
+      "person_name",
+      "phone"
+    ],
+    "note": "name and phone in booking URL"
+  },
+  {
+    "line": 45,
+    "contains_pii": false,
+    "categories": [],
+    "note": "product page"
+  },
+  {
+    "line": 46,
+    "contains_pii": true,
+    "categories": [
+      "date_of_birth",
+      "email"
+    ],
+    "note": "DOB and email inside validation error"
+  },
+  {
+    "line": 47,
+    "contains_pii": false,
+    "categories": [],
+    "note": "payment authorized"
+  },
+  {
+    "line": 48,
+    "contains_pii": true,
+    "categories": [
+      "email"
+    ],
+    "note": "email used as username"
+  },
+  {
+    "line": 49,
+    "contains_pii": false,
+    "categories": [],
+    "note": "fulfilment"
+  },
+  {
+    "line": 50,
+    "contains_pii": false,
+    "categories": [],
+    "note": "cart event"
+  },
+  {
+    "line": 51,
+    "contains_pii": false,
+    "categories": [],
+    "note": "coupon code",
+    "hard_negative": true
+  },
+  {
+    "line": 52,
+    "contains_pii": true,
+    "categories": [
+      "date_of_birth"
+    ],
+    "note": "DOB in loyalty profile"
+  },
+  {
+    "line": 53,
+    "contains_pii": false,
+    "categories": [],
+    "note": "masked email",
+    "hard_negative": true
+  },
+  {
+    "line": 54,
+    "contains_pii": true,
+    "categories": [
+      "free_text_personal",
+      "postal_address"
+    ],
+    "note": "personal circumstance and new address"
+  },
+  {
+    "line": 55,
+    "contains_pii": true,
+    "categories": [
+      "free_text_personal"
+    ],
+    "note": "child health information"
+  },
+  {
+    "line": 56,
+    "contains_pii": false,
+    "categories": [],
+    "note": "logout"
+  },
+  {
+    "line": 57,
+    "contains_pii": false,
+    "categories": [],
+    "note": "company VAT/UID number",
+    "hard_negative": true
+  },
+  {
+    "line": 58,
+    "contains_pii": false,
+    "categories": [],
+    "note": "business hotline number",
+    "hard_negative": true
+  },
+  {
+    "line": 59,
+    "contains_pii": false,
+    "categories": [],
+    "note": "system mailboxes",
+    "hard_negative": true
+  },
+  {
+    "line": 60,
+    "contains_pii": true,
+    "categories": [
+      "person_name",
+      "postal_address"
+    ],
+    "note": "return label name and address"
+  },
+  {
+    "line": 61,
+    "contains_pii": false,
+    "categories": [],
+    "note": "rate limit"
+  },
+  {
+    "line": 62,
+    "contains_pii": false,
+    "categories": [],
+    "note": "readiness probe"
+  },
+  {
+    "line": 63,
+    "contains_pii": false,
+    "categories": [],
+    "note": "shipment"
+  },
+  {
+    "line": 64,
+    "contains_pii": false,
+    "categories": [],
+    "note": "UUID request id",
+    "hard_negative": true
+  },
+  {
+    "line": 65,
+    "contains_pii": false,
+    "categories": [],
+    "note": "product search"
+  },
+  {
+    "line": 66,
+    "contains_pii": false,
+    "categories": [],
+    "note": "checkout page"
+  },
+  {
+    "line": 67,
+    "contains_pii": false,
+    "categories": [],
+    "note": "product search"
+  },
+  {
+    "line": 68,
+    "contains_pii": false,
+    "categories": [],
+    "note": "payment error without PII"
+  },
+  {
+    "line": 69,
+    "contains_pii": false,
+    "categories": [],
+    "note": "product search"
+  },
+  {
+    "line": 70,
+    "contains_pii": true,
+    "categories": [
+      "person_name",
+      "postal_address"
+    ],
+    "note": "name and address typed into search"
+  },
+  {
+    "line": 71,
+    "contains_pii": false,
+    "categories": [],
+    "note": "queue stats"
+  },
+  {
+    "line": 72,
+    "contains_pii": true,
+    "categories": [
+      "date_of_birth"
+    ],
+    "note": "birthdate in profile change"
+  },
+  {
+    "line": 73,
+    "contains_pii": false,
+    "categories": [],
+    "note": "bot"
+  },
+  {
+    "line": 74,
+    "contains_pii": true,
+    "categories": [
+      "email",
+      "person_name"
+    ],
+    "note": "newsletter confirm, URL-encoded email and name in query"
+  },
+  {
+    "line": 75,
+    "contains_pii": false,
+    "categories": [],
+    "note": "deployment"
+  },
+  {
+    "line": 76,
+    "contains_pii": true,
+    "categories": [
+      "email"
+    ],
+    "note": "email in REST path"
+  },
+  {
+    "line": 77,
+    "contains_pii": false,
+    "categories": [],
+    "note": "support status change"
+  },
+  {
+    "line": 78,
+    "contains_pii": false,
+    "categories": [],
+    "note": "shipping options"
+  },
+  {
+    "line": 79,
+    "contains_pii": true,
+    "categories": [
+      "person_name"
+    ],
+    "note": "data-subject request name"
+  },
+  {
+    "line": 80,
+    "contains_pii": true,
+    "categories": [
+      "phone"
+    ],
+    "note": "SMS recipient number"
+  },
+  {
+    "line": 81,
+    "contains_pii": false,
+    "categories": [],
+    "note": "product page"
+  },
+  {
+    "line": 82,
+    "contains_pii": false,
+    "categories": [],
+    "note": "mfa"
+  },
+  {
+    "line": 83,
+    "contains_pii": false,
+    "categories": [],
+    "note": "support ticket without PII"
+  },
+  {
+    "line": 84,
+    "contains_pii": true,
+    "categories": [
+      "postal_address"
+    ],
+    "note": "home address change"
+  },
+  {
+    "line": 85,
+    "contains_pii": true,
+    "categories": [
+      "government_id",
+      "person_name"
+    ],
+    "note": "passport number and name"
+  },
+  {
+    "line": 86,
+    "contains_pii": false,
+    "categories": [],
+    "note": "page view"
+  },
+  {
+    "line": 87,
+    "contains_pii": true,
+    "categories": [
+      "email",
+      "person_name"
+    ],
+    "note": "new account email and name"
+  },
+  {
+    "line": 88,
+    "contains_pii": false,
+    "categories": [],
+    "note": "scanner 404"
+  },
+  {
+    "line": 89,
+    "contains_pii": true,
+    "categories": [
+      "postal_address",
+      "person_name"
+    ],
+    "note": "street address and surname in query string"
+  },
+  {
+    "line": 90,
+    "contains_pii": false,
+    "categories": [],
+    "note": "inventory warning"
+  },
+  {
+    "line": 91,
+    "contains_pii": false,
+    "categories": [],
+    "note": "cache purge"
+  },
+  {
+    "line": 92,
+    "contains_pii": true,
+    "categories": [
+      "person_name",
+      "phone"
+    ],
+    "note": "contact form name and phone"
+  },
+  {
+    "line": 93,
+    "contains_pii": false,
+    "categories": [],
+    "note": "cron job"
+  },
+  {
+    "line": 94,
+    "contains_pii": false,
+    "categories": [],
+    "note": "anonymous id",
+    "hard_negative": true
+  },
+  {
+    "line": 95,
+    "contains_pii": true,
+    "categories": [
+      "email"
+    ],
+    "note": "password reset email"
+  },
+  {
+    "line": 96,
+    "contains_pii": false,
+    "categories": [],
+    "note": "last 4 card digits only",
+    "hard_negative": true
+  },
+  {
+    "line": 97,
+    "contains_pii": false,
+    "categories": [],
+    "note": "cdn error"
+  },
+  {
+    "line": 98,
+    "contains_pii": false,
+    "categories": [],
+    "note": "hashed identifier",
+    "hard_negative": true
+  },
+  {
+    "line": 99,
+    "contains_pii": true,
+    "categories": [
+      "government_id"
+    ],
+    "note": "Swiss AHV number"
+  },
+  {
+    "line": 100,
+    "contains_pii": true,
+    "categories": [
+      "phone"
+    ],
+    "note": "callback phone number"
+  },
+  {
+    "line": 101,
+    "contains_pii": false,
+    "categories": [],
+    "note": "category listing"
+  },
+  {
+    "line": 102,
+    "contains_pii": false,
+    "categories": [],
+    "note": "analytics beacon"
+  },
+  {
+    "line": 103,
+    "contains_pii": true,
+    "categories": [
+      "person_name",
+      "free_text_personal"
+    ],
+    "note": "name and health condition in chat"
+  },
+  {
+    "line": 104,
+    "contains_pii": true,
+    "categories": [
+      "postal_address"
+    ],
+    "note": "billing address"
+  },
+  {
+    "line": 105,
+    "contains_pii": false,
+    "categories": [],
+    "note": "favicon"
+  },
+  {
+    "line": 106,
+    "contains_pii": false,
+    "categories": [],
+    "note": "recommendations"
+  },
+  {
+    "line": 107,
+    "contains_pii": false,
+    "categories": [],
+    "note": "masked phone",
+    "hard_negative": true
+  },
+  {
+    "line": 108,
+    "contains_pii": true,
+    "categories": [
+      "person_name",
+      "date_of_birth"
+    ],
+    "note": "birthday club signup"
+  },
+  {
+    "line": 109,
+    "contains_pii": false,
+    "categories": [],
+    "note": "static asset"
+  },
+  {
+    "line": 110,
+    "contains_pii": true,
+    "categories": [
+      "person_name",
+      "postal_address"
+    ],
+    "note": "shipping recipient and address"
+  },
+  {
+    "line": 111,
+    "contains_pii": false,
+    "categories": [],
+    "note": "age bracket, no DOB",
+    "hard_negative": true
+  },
+  {
+    "line": 112,
+    "contains_pii": false,
+    "categories": [],
+    "note": "product search"
+  },
+  {
+    "line": 113,
+    "contains_pii": false,
+    "categories": [],
+    "note": "postcode only",
+    "hard_negative": true
+  },
+  {
+    "line": 114,
+    "contains_pii": true,
+    "categories": [
+      "payment_data",
+      "person_name"
+    ],
+    "note": "IBAN and customer name"
+  },
+  {
+    "line": 115,
+    "contains_pii": true,
+    "categories": [
+      "free_text_personal",
+      "email"
+    ],
+    "note": "disability detail and email"
+  },
+  {
+    "line": 116,
+    "contains_pii": false,
+    "categories": [],
+    "note": "role mailbox",
+    "hard_negative": true
+  },
+  {
+    "line": 117,
+    "contains_pii": false,
+    "categories": [],
+    "note": "stack trace without personal data",
+    "hard_negative": true
+  },
+  {
+    "line": 118,
+    "contains_pii": true,
+    "categories": [
+      "government_id"
+    ],
+    "note": "AHV as social security number"
+  },
+  {
+    "line": 119,
+    "contains_pii": false,
+    "categories": [],
+    "note": "static asset"
+  },
+  {
+    "line": 120,
+    "contains_pii": true,
+    "categories": [
+      "payment_data",
+      "person_name"
+    ],
+    "note": "card number and holder"
+  }
+]
