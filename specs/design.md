@@ -227,5 +227,5 @@ Concurrency (`src/pool.ts`): a worker pool of N async workers that pull from a s
 ## 11. Changelog
 
 - 2026-09-26: initial design for review.
-- 2026-09-26: T2. Added the optional `hard_negative` label field and the fixture generator script (§5.1).
 - 2026-09-26: review round 1. D1–D7 accepted as proposed. Added D8: `.env` / `.env.dist` secrets handling (§1.1, `env.ts`, `env.test.ts`), and raised the Node minimum to 20.12.
+- 2026-09-26: T2. Added the optional `hard_negative` label field and the fixture generator script (§5.1).
