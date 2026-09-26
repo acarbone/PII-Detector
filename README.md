@@ -77,6 +77,45 @@ Analyzing 120 log lines with jev-latest (concurrency 8, threshold 0.50)
   ...
 ```
 
+## Results
+
+First full run: 2026-09-26, `jev-latest` → **`jev-1.13.0`**, all 120 fixture lines, default settings (threshold 0.50, concurrency 8).
+
+| Metric | Result | Target (NFR-05) | |
+|---|---|---|---|
+| Recall | **1.00** (48/48 PII lines found) | ≥ 0.90 | ✅ |
+| Precision | **0.94** (3 false positives) | ≥ 0.85 | ✅ |
+| F1 / accuracy | 0.97 / 0.97 | — | |
+| Total execution time | **4.1 s** (29 lines/s) | < 30 s | ✅ |
+| Per-line latency | min 216 ms · p50 260 ms · p95 327 ms · max 403 ms | — | |
+| Tokens | 87,576 input · 20,520 output | — | |
+| Estimated cost | ≈ $0.0037 for the run (≈ $0.00003 per line) | — | |
+
+**Threshold sweep** (same run, no extra API calls):
+
+| Threshold | Precision | Recall | F1 | FP | FN |
+|---:|---:|---:|---:|---:|---:|
+| 0.30 | 0.91 | 1.00 | 0.95 | 5 | 0 |
+| **0.50** | **0.94** | **1.00** | **0.97** | 3 | 0 |
+| 0.70 | 0.98 | 1.00 | 0.99 | 1 | 0 |
+
+**Per category:** every category question found all of its labelled lines (recall 1.00 for names, emails, phones, addresses, dates of birth, government IDs, payment data and free-text personal details).
+
+**What it got wrong.** All 3 false positives are *masked* values that still look like contact or payment data:
+
+- `customer_email: "j***@e***.com"` (0.63)
+- `card_last4: "4242"` (0.68)
+- `phone: "+41 ** *** ** 12"` (0.80)
+
+At threshold 0.70, only the masked phone remains. Two other hard negatives, a company VAT number and a business hotline, were correctly classified as clean. Their category questions (`has_government_id`, `has_phone`) fired, and the report lists them under *Review* as disagreements.
+
+**Takeaways**
+
+- Jev handled the cases that regexes miss: PII in URL-encoded query strings and referrers, names in free text and stack traces, a passport MRZ line, and health or family details in support messages.
+- The main question plus category questions in one request costs about 730 input tokens per line. Latency stays around 260 ms, because the questions run in parallel.
+- If false positives are costly, raise the threshold to 0.7. Recall stays at 1.00 on this fixture. Because every probability is in `--json`, other thresholds can be tried without calling the API again.
+- These numbers come from a 120-line synthetic fixture. Validate on real (sanitized) logs before relying on them.
+
 ## Repository layout (target)
 
 ```

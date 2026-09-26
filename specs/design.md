@@ -235,3 +235,4 @@ Concurrency (`src/pool.ts`): a worker pool of N async workers that pull from a s
 - 2026-09-26: T6. Added `has_free_text_personal`, so that each of the 8 fixture categories has its own question (9 nouls in total). This makes per-category recall possible.
 - 2026-09-26: T7. 401/403 abort the run. SDK logging is turned off (§6).
 - 2026-09-26: T14. The live smoke test is opt-in (`npm run test:live`, `*.live.test.ts`), so the default `npm test` never calls the API (§9).
+- 2026-09-26: T15. First real run (`jev-1.13.0`): precision 0.94, recall 1.00, 4.1 s. NFR-05 is met, so no prompt iteration was needed. The `contains_pii` question keeps its `criteria`.
