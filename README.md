@@ -1,6 +1,6 @@
 # PII Detector PoC — TypeSafe Jev `noul`
 
-> **Status: design review (round 1 decisions applied).** This repository currently contains only the README and the specs in [`specs/`](specs/). Nothing is implemented yet; the implementation starts once the specs are approved.
+> **Status: implemented.** All tasks in [`specs/tasks.md`](specs/tasks.md) are done. The first measured results are in [Results](#results).
 
 ## Aim
 
@@ -49,32 +49,71 @@ fixtures/web-logs.log ──► CLI ──► for each line (bounded concurrency
 
 The full design is in [`specs/design.md`](specs/design.md).
 
-## Planned usage
+## Usage
 
-> These commands will work once the tasks in `specs/tasks.md` are implemented.
+Requirements: Node.js ≥ 20.12 and a TypeSafe API key.
 
 ```bash
 npm install
 cp .env.dist .env                  # then set TYPESAFE_API_KEY (from https://console.typesafe.ai/)
 
-npm run detect                                        # analyze fixtures/web-logs.log
+npm run detect                                        # analyze fixtures/web-logs.log against its labels
 npm run detect -- --threshold 0.7 --concurrency 16    # tune decision and throughput
 npm run detect -- --input path/to/other.log --no-eval # any log file, no ground truth
 npm run detect -- --json reports/run.json --md reports/run.md
+npm run detect -- --help
 ```
 
-Sample of the planned output:
+| Flag | Default | Meaning |
+|---|---|---|
+| `--input <path>` | `fixtures/web-logs.log` | Log file to analyze, one event per line |
+| `--labels <path>` | `<input>.labels.json` if present | Ground truth used for the accuracy section |
+| `--threshold <0..1>` | `0.5` | `contains_pii` probability at or above which a line counts as PII |
+| `--concurrency <n>` | `8` | Parallel API requests |
+| `--model <name>` | `jev-latest` | TypeSafe model; pin e.g. `jev-1.13.0` |
+| `--limit <n>` | all | Analyze only the first n lines |
+| `--no-eval` | | Skip the accuracy evaluation |
+| `--json <path>` / `--md <path>` | | Also write a JSON / Markdown report |
+| `--no-color` | colors on a TTY | Disable ANSI colors (`NO_COLOR` is also respected) |
+
+Progress goes to **stderr** and the report goes to **stdout**, so `npm run -s detect > report.txt` still shows live progress. On a terminal, progress is a bar that redraws in place. When piped or in CI, it prints one line at each 10%.
+
+Exit codes: `0` when the run completes (even if PII is found), `1` on a fatal error (bad flags, missing key, authentication failure), and `2` when some lines failed after retries.
+
+Excerpt of a real run:
 
 ```
 Analyzing 120 log lines with jev-latest (concurrency 8, threshold 0.50)
-[████████████████████░░░░░░░░░░]  82/120  68% | 9.4 lines/s | ETA 4s | PII 33 | errors 0
-...
-══ Performance ══  total 12.8s · 9.4 lines/s · latency p50 610ms / p95 1.21s · 41,230 input tokens (~$0.0017)
-══ Results ══      120 analyzed · 47 PII · 73 clean · 0 errors
-══ Accuracy ══     precision 0.96 · recall 0.94 · F1 0.95 · FP 2 · FN 3
-══ Lines with PII ══
-  #007  0.99  email, name   2026-09-12T10:04:11Z INFO  POST /newsletter/subscribe email=anna.muster@example.com ...
-  ...
+[██████████████████████████████] 120/120 100% | 29.1 lines/s | ETA 0s | PII 51 | errors 0
+
+══ Performance ══
+  total time   4.12s    throughput 29.1 lines/s
+  latency      min 216ms · p50 260ms · p95 327ms · max 403ms
+  tokens       87,576 input · 20,520 output · est. cost $0.00368
+
+══ Results ══
+  analyzed 120/120 · PII 51 · clean 69 · errors 0 · review 3
+
+══ Accuracy ══
+  precision 0.94 · recall 1.00 · F1 0.97 · accuracy 0.97
+  confusion    TP 48 · FP 3 · TN 69 · FN 0
+
+══ Lines with PII (51) ══
+  #001  0.87  payment_data  {"ts":"2026-09-12T08:00:54Z","level":"ERROR","svc":"payments","msg":"gateway rejected card 4111111111111111 …
+  #003  0.97  person_name  {"ts":"2026-09-12T08:01:49Z","level":"INFO","svc":"chatbot","event":"transcript","session":"cb_5512","user_…
+  #004  0.97  person_name, email, phone  {"ts":"2026-09-12T08:02:07Z","level":"INFO","svc":"checkout","event":"guest_checkout","guest_email"…
+  …
+```
+
+The full report also shows the run configuration, the threshold sweep, per-category recall, false positives and negatives, *Review* items (lines where the main answer and the category answers disagree) and errors.
+
+## Tests
+
+```bash
+npm test            # offline unit tests (fake fetch, never loads .env)
+npm run typecheck
+npm run test:live   # opt-in smoke test against the real API (uses .env; skipped without a key)
+npm run fixtures:generate   # regenerate the fixture deterministically
 ```
 
 ## Results
@@ -116,20 +155,30 @@ At threshold 0.70, only the masked phone remains. Two other hard negatives, a co
 - If false positives are costly, raise the threshold to 0.7. Recall stays at 1.00 on this fixture. Because every probability is in `--json`, other thresholds can be tried without calling the API again.
 - These numbers come from a 120-line synthetic fixture. Validate on real (sanitized) logs before relying on them.
 
-## Repository layout (target)
+## Repository layout
 
 ```
 README.md
 specs/
-  requirements.md   # what: numbered requirements + acceptance criteria
-  design.md         # how: architecture, questions, data formats, report
-  tasks.md          # implementation plan, each task traced to requirements
+  requirements.md           # what: numbered requirements + acceptance criteria
+  design.md                 # how: architecture, questions, data formats, report, changelog
+  tasks.md                  # implementation plan, each task traced to requirements
 fixtures/
   web-logs.log              # 120 raw log lines (input)
   web-logs.labels.json      # ground truth per line (never sent to the model)
-src/                        # CLI, detector, progress, report, metrics
-test/                       # unit tests (mocked API) + fixture validation
-reports/                    # generated reports (git-ignored)
+scripts/
+  generate-fixtures.ts      # deterministic fixture generator
+src/
+  cli.ts                    # entry point: flags, orchestration, exit codes
+  env.ts  config.ts         # .env loading, validated run config
+  fixtures.ts               # log line + label loaders
+  questions.ts              # the noul question set (single source of truth)
+  detector.ts               # one systemOne request per line, thresholding
+  pool.ts  progress.ts      # bounded concurrency, live progress on stderr
+  metrics.ts                # latency, tokens/cost, confusion matrix, sweep
+  report/                   # console, JSON and Markdown renderers
+test/                       # unit tests (fake fetch) + opt-in live smoke test
+reports/                    # generated reports (git-ignored: they contain PII)
 .env.dist                   # versioned template of environment variables
 .env                        # your local secrets, e.g. TYPESAFE_API_KEY (git-ignored)
 ```
@@ -140,7 +189,7 @@ reports/                    # generated reports (git-ignored)
 2. **Design** (`specs/design.md`): the decisions that satisfy each requirement.
 3. **Tasks** (`specs/tasks.md`): small, ordered, testable steps that each reference the requirement IDs they fulfil.
 
-The design decisions are recorded in `specs/design.md` §10. Implementation starts once the specs are approved.
+The design decisions are recorded in `specs/design.md` §10. Changes made during implementation are logged in its changelog (§11).
 
 ## Configuration
 
@@ -151,3 +200,10 @@ cp .env.dist .env   # then fill in TYPESAFE_API_KEY
 ```
 
 A `TYPESAFE_API_KEY` exported in your shell takes precedence over `.env`.
+
+## Next steps
+
+- **Batch mode (D7):** send N lines per request with one noul per line (`` `lines[i]` ``), and compare cost, latency and accuracy with one line per request.
+- **Masked values:** add criteria for masked or partial values to `contains_pii`, since all 3 current false positives are masked values, and measure the effect with the threshold sweep.
+- **Non-English logs:** add German, French and Italian free text to the fixture. Jev is strongest in English.
+- **Real data:** evaluate on a sanitized sample of real production logs before relying on these numbers.
