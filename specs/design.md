@@ -66,7 +66,8 @@ POST /v1/systemone
     "contains_pii":     { "type": "noul", "instructions": "...", "criteria": { "true": "...", "false": "..." } },
     "has_person_name":  { "type": "noul", "instructions": "..." },
     "has_email":        { ... }, "has_phone": { ... }, "has_postal_address": { ... },
-    "has_date_of_birth":{ ... }, "has_government_id": { ... }, "has_payment_data": { ... }
+    "has_date_of_birth":{ ... }, "has_government_id": { ... }, "has_payment_data": { ... },
+    "has_free_text_personal": { ... }
   }
 }
 ```
@@ -91,6 +92,7 @@ The wording follows the Noul guidance: one condition per question, a high value 
 | `has_date_of_birth` | "Does `log_line` contain a person's date of birth?" | — |
 | `has_government_id` | "Does `log_line` contain a government-issued identifier such as a social security, AHV/AVS, passport, national ID or tax number?" | — |
 | `has_payment_data` | "Does `log_line` contain a full bank account number (IBAN) or payment card number?" | — |
+| `has_free_text_personal` | "Does `log_line` contain free-text personal details about a specific person, such as their health, family situation, disability or other private circumstances?" | — |
 
 Category threshold: the same `--threshold` is used. The console shows a category only when its noul ≥ threshold. The JSON report always keeps the raw probabilities, so a different threshold can be applied later without re-running inference.
 
@@ -229,3 +231,4 @@ Concurrency (`src/pool.ts`): a worker pool of N async workers that pull from a s
 - 2026-09-26: initial design for review.
 - 2026-09-26: review round 1. D1–D7 accepted as proposed. Added D8: `.env` / `.env.dist` secrets handling (§1.1, `env.ts`, `env.test.ts`), and raised the Node minimum to 20.12.
 - 2026-09-26: T2. Added the optional `hard_negative` label field and the fixture generator script (§5.1).
+- 2026-09-26: T6. Added `has_free_text_personal`, so that each of the 8 fixture categories has its own question (9 nouls in total). This makes per-category recall possible.

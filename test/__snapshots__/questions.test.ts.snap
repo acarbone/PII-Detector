@@ -1,0 +1,54 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`question set (REQ-DET-01..03) > matches the reviewed payload 1`] = `
+{
+  "contains_pii": {
+    "criteria": {
+      "false": "The line contains no value belonging to a specific individual. Internal IDs, order numbers, UUIDs, session tokens, product codes, masked or hashed values, generic company mailboxes (e.g. support@), public business addresses and anonymized IPs are not personal information.",
+      "true": "The line contains at least one value belonging to a specific individual: their name, email address, phone number, home or delivery address, date of birth, government or passport number, bank account or card number, or other personal details about them, even if URL-encoded or embedded in a URL, header or error message.",
+    },
+    "instructions": "Does \`log_line\` contain personal information that identifies or could be linked to a specific real person?",
+    "type": "noul",
+  },
+  "has_date_of_birth": {
+    "criteria": undefined,
+    "instructions": "Does \`log_line\` contain a person's date of birth?",
+    "type": "noul",
+  },
+  "has_email": {
+    "criteria": undefined,
+    "instructions": "Does \`log_line\` contain an email address belonging to an individual person (not a generic company or role mailbox)?",
+    "type": "noul",
+  },
+  "has_free_text_personal": {
+    "criteria": undefined,
+    "instructions": "Does \`log_line\` contain free-text personal details about a specific person, such as their health, family situation, disability or other private circumstances?",
+    "type": "noul",
+  },
+  "has_government_id": {
+    "criteria": undefined,
+    "instructions": "Does \`log_line\` contain a government-issued identifier such as a social security, AHV/AVS, passport, national ID or tax number?",
+    "type": "noul",
+  },
+  "has_payment_data": {
+    "criteria": undefined,
+    "instructions": "Does \`log_line\` contain a full bank account number (IBAN) or payment card number?",
+    "type": "noul",
+  },
+  "has_person_name": {
+    "criteria": undefined,
+    "instructions": "Does \`log_line\` contain the name of a specific person?",
+    "type": "noul",
+  },
+  "has_phone": {
+    "criteria": undefined,
+    "instructions": "Does \`log_line\` contain a person's phone number?",
+    "type": "noul",
+  },
+  "has_postal_address": {
+    "criteria": undefined,
+    "instructions": "Does \`log_line\` contain a person's street, home, billing or delivery address?",
+    "type": "noul",
+  },
+}
+`;
