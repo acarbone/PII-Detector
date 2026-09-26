@@ -1,0 +1,11 @@
+node_modules/
+reports/
+coverage/
+*.log.tmp
+
+# Secrets: never commit local env files; only the template is versioned.
+.env
+.env.*
+!.env.dist
+
+.DS_Store
